@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CyberGuardian</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+background:#081b29;
+color:white;
+
+}
+
+nav{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+background:#05101d;
+position:sticky;
+top:0;
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:bold;
+color:#00e5ff;
+
+}
+
+nav ul{
+
+display:flex;
+list-style:none;
+
+}
+
+nav ul li{
+
+margin-left:25px;
+
+}
+
+nav ul li a{
+
+color:white;
+text-decoration:none;
+transition:.3s;
+
+}
+
+nav ul li a:hover{
+
+color:#00e5ff;
+
+}
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+background:linear-gradient(135deg,#081b29,#0d2e46);
+
+padding:30px;
+
+}
+
+.hero h1{
+
+font-size:60px;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:22px;
+
+margin-bottom:30px;
+
+color:#ddd;
+
+}
+
+.btn{
+
+padding:15px 35px;
+
+background:#00bcd4;
+
+color:white;
+
+border:none;
+
+border-radius:40px;
+
+cursor:pointer;
+
+font-size:18px;
+
+transition:.4s;
+
+text-decoration:none;
+
+}
+
+.btn:hover{
+
+background:#008ba3;
+
+transform:scale(1.05);
+
+}
+
+section{
+
+padding:80px;
+
+}
+
+.title{
+
+text-align:center;
+
+font-size:40px;
+
+margin-bottom:40px;
+
+color:#00e5ff;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+gap:20px;
+
+}
+
+.card{
+
+background:#11293d;
+
+padding:25px;
+
+border-radius:15px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+background:#17415f;
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+color:#00e5ff;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+
+🛡 CyberGuardian
+
+</div>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#password">Password</a></li>
+
+<li><a href="#quiz">Quiz</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div>
+
+<h1>CyberGuardian</h1>
+
+<p>Detect • Learn • Protect</p>
+
+<a href="#about" class="btn">Get Started</a>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">
+
+About CyberGuardian
+
+</h2>
+
+<p style="font-size:20px; line-height:1.8; text-align:center;">
+
+CyberGuardian is a cybersecurity awareness website developed to educate users about online threats like phishing attacks, malware, weak passwords, fake websites, social engineering and cyber safety practices.
+
+The website provides interactive learning tools that help users stay secure while using the Internet.
+
+</p>
+
+</section>
+
+<section id="features">
+
+<h2 class="title">
+
+Website Features
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🔐 Password Strength Checker</h3>
+
+<p>
+
+Check whether your password is Weak, Medium or Strong.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🚨 Scam Detector</h3>
+
+<p>
+
+Learn how phishing messages and fake websites trick users.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Cyber Safety Quiz</h3>
+
+<p>
+
+Test your cybersecurity awareness through interactive questions.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>💡 Security Tips</h3>
+
+<p>
+
+Simple practices to stay safe online.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- PASSWORD CHECKER -->
+
+<section id="password">
+
+<h2 class="title">🔐 Password Strength Checker</h2>
+
+<div style="max-width:500px;margin:auto;text-align:center;">
+
+<input
+type="password"
+id="passwordInput"
+placeholder="Enter your password"
+style="width:100%;padding:15px;border:none;border-radius:10px;font-size:18px;">
+
+<br><br>
+
+<button class="btn" onclick="checkPassword()">
+Check Password
+</button>
+
+<h3 id="passwordResult" style="margin-top:20px;"></h3>
+
+</div>
+
+</section>
+
+<!-- SCAM DETECTOR -->
+
+<section>
+
+<h2 class="title">🚨 Scam Message Detector</h2>
+
+<div style="max-width:700px;margin:auto;text-align:center;">
+
+<textarea
+id="scamInput"
+rows="6"
+placeholder="Paste any SMS or Email..."
+style="width:100%;padding:15px;border-radius:10px;font-size:17px;"></textarea>
+
+<br><br>
+
+<button class="btn" onclick="detectScam()">
+Analyze
+</button>
+
+<h3 id="scamResult" style="margin-top:20px;"></h3>
+
+</div>
+
+</section>
+
+<!-- FAKE WEBSITE -->
+
+<section>
+
+<h2 class="title">🌐 Fake Website Example</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3 style="color:red;">❌ Fake Website</h3>
+
+<p>
+
+www.bank-security-login.xyz
+
+<br><br>
+
+• Fake domain
+
+<br>
+
+• Urgent login message
+
+<br>
+
+• May steal passwords
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3 style="color:lime;">✅ Genuine Website</h3>
+
+<p>
+
+https://bank.com
+
+<br><br>
+
+• HTTPS
+
+<br>
+
+• Correct domain
+
+<br>
+
+• Trusted website
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+function checkPassword(){
+
+let password=document.getElementById("passwordInput").value;
+
+let result=document.getElementById("passwordResult");
+
+let score=0;
+
+if(password.length>=8) score++;
+
+if(/[A-Z]/.test(password)) score++;
+
+if(/[0-9]/.test(password)) score++;
+
+if(/[!@#$%^&*]/.test(password)) score++;
+
+if(score<=1){
+
+result.innerHTML="❌ Weak Password";
+
+result.style.color="red";
+
+}
+
+else if(score<=3){
+
+result.innerHTML="🟡 Medium Password";
+
+result.style.color="orange";
+
+}
+
+else{
+
+result.innerHTML="✅ Strong Password";
+
+result.style.color="lime";
+
+}
+
+}
+
+function detectScam(){
+
+let text=document.getElementById("scamInput").value.toLowerCase();
+
+let result=document.getElementById("scamResult");
+
+if(
+
+text.includes("otp") ||
+
+text.includes("winner") ||
+
+text.includes("bank") ||
+
+text.includes("click here") ||
+
+text.includes("urgent") ||
+
+text.includes("verify")
+
+){
+
+result.innerHTML="⚠ This message looks like a scam!";
+
+result.style.color="red";
+
+}
+
+else{
+
+result.innerHTML="✅ No suspicious keywords found.";
+
+result.style.color="lime";
+
+}
+
+}
+
+</script>
+<!-- CYBER SAFETY QUIZ -->
+
+<section id="quiz">
+
+<h2 class="title">📊 Cyber Safety Quiz</h2>
+
+<div style="max-width:700px;margin:auto;background:#11293d;padding:30px;border-radius:15px;">
+
+<h3>1. Should you share your OTP with anyone?</h3>
+
+<button class="btn" onclick="quizAnswer(false)">Yes</button>
+
+<button class="btn" onclick="quizAnswer(true)">No</button>
+
+<br><br>
+
+<h3>2. Is "https://" generally safer than "http://"?</h3>
+
+<button class="btn" onclick="quizAnswer(true)">Yes</button>
+
+<button class="btn" onclick="quizAnswer(false)">No</button>
+
+<br><br>
+
+<h3>3. Should you use the same password everywhere?</h3>
+
+<button class="btn" onclick="quizAnswer(false)">Yes</button>
+
+<button class="btn" onclick="quizAnswer(true)">No</button>
+
+<br><br>
+
+<h2 id="scoreText">Cyber Safety Score : 0 / 3</h2>
+
+</div>
+
+</section>
+
+<!-- SECURITY TIPS -->
+
+<section>
+
+<h2 class="title">💡 Daily Cyber Safety Tips</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🔑 Strong Passwords</h3>
+<p>Use at least 12 characters with numbers, symbols and uppercase letters.</p>
+</div>
+
+<div class="card">
+<h3>📱 Enable 2FA</h3>
+<p>Turn on Two-Factor Authentication for extra account protection.</p>
+</div>
+
+<div class="card">
+<h3>📧 Beware of Phishing</h3>
+<p>Never click suspicious links or download unknown attachments.</p>
+</div>
+
+<div class="card">
+<h3>💻 Update Devices</h3>
+<p>Keep your operating system and apps updated with the latest security patches.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer style="text-align:center;padding:25px;background:#05101d;margin-top:50px;">
+
+<h3>🛡 CyberGuardian</h3>
+
+<p>Designed for Cyber Security Awareness Project</p>
+
+<p>© 2025 CyberGuardian</p>
+
+</footer>
+
+<script>
+
+let score=0;
+let answered=0;
+
+function quizAnswer(correct){
+
+answered++;
+
+if(correct){
+score++;
+}
+
+document.getElementById("scoreText").innerHTML =
+"Cyber Safety Score : " + score + " / 3";
+
+if(answered==3){
+
+setTimeout(function(){
+
+if(score==3){
+
+alert("🎉 Excellent! You're Cyber Safe.");
+
+}
+
+else if(score==2){
+
+alert("😊 Good! Keep learning Cyber Security.");
+
+}
+
+else{
+
+alert("⚠ You need more Cyber Safety Awareness.");
+
+}
+
+},300);
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
